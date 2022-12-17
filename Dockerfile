@@ -1,4 +1,16 @@
 #
+#	Build image
+#
+FROM node:16-alpine as build
+
+WORKDIR /root
+
+COPY . ./
+
+RUN npm install && \
+	./node_modules/.bin/ng build --configuration=production
+
+#
 #	Production image
 # @see https://hub.docker.com/_/nginx
 #
@@ -36,11 +48,12 @@ RUN chmod +x  /tmp/setup.sh && \
 
 # Project files
 COPY root /
-COPY dist/rso /app
 RUN chmod o+w /tmp && \
   usermod -a -G tty ${CONTAINER_USER} && \ 
 	touch /var/run/nginx.pid && \
 	chown -R ${CONTAINER_USER}:${CONTAINER_GROUP} /app /var/cache/nginx /var/log/nginx /var/run/nginx.pid && \
+	sed -ri 's/user\s+.*;//' /etc/nginx/nginx.conf && \
 	rm -r /usr/share/nginx/html/*
+COPY --from=build /root/dist/rso /app
 
 ENTRYPOINT ["/init"]
