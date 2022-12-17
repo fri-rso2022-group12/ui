@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+
+if [ -n "$SKIP_APP" ]; then
+	exit 0
+fi
+
+nginx -g 'daemon off;'
