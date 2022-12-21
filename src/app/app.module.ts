@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,10 +13,12 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     ErrorComponent,
     IndexComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbCollapseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
