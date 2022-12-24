@@ -1,0 +1,45 @@
+<div class="container">
+  <form [formGroup]="voziloForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+      <div class="col-2 offset-10">
+        <div class="btn-group" role="group">
+          <button type="submit" class="btn btn-primary" [disabled]="!voziloForm.valid || !voziloForm.dirty"><i class="bi bi-save"></i> Save</button>
+          <button type="button" class="btn btn-danger" [disabled]="!id" (click)="onDeleteClick()"><i class="bi bi-trash"></i> Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputId" class="col-sm-2 col-form-label">ID</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="inputId" [value]="id">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputRegistrskaOznaka" class="col-sm-2 col-form-label">Registrska oznaka</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputRegistrskaOznaka" formControlName="registrskaOznaka" formControlStatus>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputVIN" class="col-sm-2 col-form-label">VIN</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputVIN" formControlName="vin" formControlStatus>
+      </div>
+    </div>
+    <div class="row mb-3"> <!-- TODO: Fill with models -->
+      <label for="inputModelId" class="col-sm-2 col-form-label">Model</label>
+      <div class="col-sm-10">
+        <select class="form-select" aria-label="Default select example" id="inputModelId" formControlName="modelId" formControlStatus>
+          <option [value]="null"></option>
+          <option *ngFor="let modelVozila of modeliVozil" [value]="modelVozila.id">{{ modelVozila.naziv }} ({{ modelVozila.proizvajalec?.naziv }})</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputKapaciteta" class="col-sm-2 col-form-label">Kapaciteta</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="inputKapaciteta" formControlName="kapaciteta" formControlStatus>
+      </div>
+    </div>
+  </form>
+</div>

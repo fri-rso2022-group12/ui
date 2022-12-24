@@ -13,18 +13,19 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Naziv</th>
+            <th scope="col">Registrska oznaka</th>
+            <th scope="col">VIN</th>
+            <th scope="col">Kapaciteta</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let proizvajalec of proizvajalci">
-            <th scope="row">{{ proizvajalec.id }}</th>
-            <td>{{ proizvajalec.naziv }}</td>
-            <td class="text-end">
-              <i class="bi bi-car-front me-2" [routerLink]="[proizvajalec.id, 'model-vozila']" placement="top" ngbTooltip="Modeli vozil"></i>
-              <i class="bi bi-pencil-fill" [routerLink]="[proizvajalec.id]" placement="top" ngbTooltip="Edit"></i>
-            </td>
+          <tr *ngFor="let vozilo of vozila">
+            <th scope="row">{{ vozilo.id }}</th>
+            <td>{{ vozilo.registrskaOznaka }}</td>
+            <td>{{ vozilo.vin }}</td>
+            <td>{{ vozilo.kapaciteta }}</td>
+            <td class="text-end"><i class="bi bi-pencil-fill" [routerLink]="[vozilo.id]" placement="top" ngbTooltip="Edit"></i></td>
           </tr>
         </tbody>
       </table>

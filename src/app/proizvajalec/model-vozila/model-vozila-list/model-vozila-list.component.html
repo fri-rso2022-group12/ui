@@ -14,16 +14,18 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Naziv</th>
+            <th scope="col">Tip</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let proizvajalec of proizvajalci">
-            <th scope="row">{{ proizvajalec.id }}</th>
-            <td>{{ proizvajalec.naziv }}</td>
+          <tr *ngFor="let modelVozila of modeliVozil">
+            <th scope="row">{{ modelVozila.id }}</th>
+            <td>{{ modelVozila.naziv }}</td>
+            <td>{{ pridobiTip(modelVozila.tip) }}</td>
             <td class="text-end">
-              <i class="bi bi-car-front me-2" [routerLink]="[proizvajalec.id, 'model-vozila']" placement="top" ngbTooltip="Modeli vozil"></i>
-              <i class="bi bi-pencil-fill" [routerLink]="[proizvajalec.id]" placement="top" ngbTooltip="Edit"></i>
+              <i class="bi bi-wrench me-2" [routerLink]="[modelVozila.id, 'izdelave']" placement="top" ngbTooltip="Izdelave"></i>
+              <i class="bi bi-pencil-fill" [routerLink]="[modelVozila.id]" placement="top" ngbTooltip="Edit"></i>
             </td>
           </tr>
         </tbody>

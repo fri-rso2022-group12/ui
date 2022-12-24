@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <i class="bi bi-info-circle-fill"></i> Podatki so pridobljeni iz zunanjega API
+      </div>      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <button type="button" class="btn btn-light" (click)="onRefreshClick(true)"><i class="bi bi-arrow-clockwise"></i></button>
+    </div>
+    <div class="col-2 offset-9 text-end">
+      <button type="button" class="btn btn-primary" routerLink="new"><i class="bi bi-plus-lg"></i> Add</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Leto</th>
+            <th scope="col">Znamka</th>
+            <th scope="col">Model</th>
+            <th scope="col">Tip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let izdelava of izdelaveModelaVozil">
+            <th scope="row">{{ izdelava.id }}</th>
+            <td>{{ izdelava.year }}</td>
+            <td>{{ izdelava.make }}</td>
+            <td>{{ izdelava.model }}</td>
+            <td>{{ izdelava.type }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
