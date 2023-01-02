@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'proizvajalec', loadChildren: () => import('./proizvajalec/proizvajalec.module').then(m => m.ProizvajalecModule) },
   { path: 'vozilo', loadChildren: () => import('./vozilo/vozilo.module').then(m => m.VoziloModule) },
   { path: 'uporabnik', loadChildren: () => import('./uporabniki/uporabnik.module').then(m => m.UserModule) },
+  { path: 'pot', loadChildren: () => import('./pot/pot.module').then(m => m.PotModule) },
   { path: '**', component: ErrorComponent, data: { message: 'Not found' }},
 ];
 
