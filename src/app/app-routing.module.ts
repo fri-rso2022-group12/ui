@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: IndexComponent },
   { path: 'proizvajalec', loadChildren: () => import('./proizvajalec/proizvajalec.module').then(m => m.ProizvajalecModule) },
   { path: 'vozilo', loadChildren: () => import('./vozilo/vozilo.module').then(m => m.VoziloModule) },
+  { path: 'uporabnik', loadChildren: () => import('./uporabniki/uporabnik.module').then(m => m.UserModule) },
   { path: '**', component: ErrorComponent, data: { message: 'Not found' }},
 ];
 
