@@ -21,7 +21,7 @@ export class UporabnikService {
   }
 
   get(id: number): Observable<UporabnikDto> {
-    return this.http.get<UporabnikDto>(`${environment.apiUporabnikiUrl}/users/${id}`);
+    return this.http.get<{ user: UporabnikDto }>(`${environment.apiUporabnikiUrl}/users/${id}`).pipe(map(data => data.user));
   }
 
   create(user: UporabnikDto): Observable<Object> {

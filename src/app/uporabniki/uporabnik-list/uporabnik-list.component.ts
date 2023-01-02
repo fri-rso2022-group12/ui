@@ -37,8 +37,6 @@ export class UsersListComponent implements OnInit {
 
   async loadData() {
     const users = await firstValueFrom(this.UporabnikService.list());
-    console.log("USERS")
-    console.log(users)
     this.users.splice(0, this.users.length);
     users.forEach((item) => this.users.push(item));
   }
